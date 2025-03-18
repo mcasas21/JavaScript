@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Saldo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #saldo {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Saldo</h1>
+    <p id="saldo">Saldo actual: <b>1000</b> €</p>
+    <input type="number" id="monto" placeholder="Ingrese cantidad a retirar">
+    <button onclick="retirar()">Retirar</button>
+    <p id="mensaje"></p>
+    <p id="despedida"></p>
+
+    <script>
+        let saldo = 1000; // Saldo inicial
+
+        function retirar() {
+            try {
+                let monto = parseFloat(document.getElementById("monto").value);
+                let mensaje = document.getElementById("mensaje");
+
+                if (isNaN(monto) || monto <= 0) {
+                    mensaje.textContent = "Por favor, ingrese una cantidad válida.";
+                    mensaje.style.color = "red";
+                    return;
+                }
+
+                if (monto > saldo) {
+                    throw new Error("Saldo insuficiente.");
+                } else {
+                    saldo -= monto;
+                    document.getElementById("saldo").innerHTML = `Saldo actual: <b>${saldo}</b> €`;
+                    mensaje.textContent = "Retiro exitoso.";
+                    mensaje.style.color = "green";
+                }
+
+                document.getElementById("monto").value = ""; // Limpiar la casilla
+            } catch (pepe) {
+                let mensaje = document.getElementById("mensaje");
+                mensaje.textContent = "Ocurrió un error: " + pepe.message;
+                mensaje.style.color = "red";
+            } finally {
+                let despedida = document.getElementById("despedida");
+                despedida.textContent = "Gracias por utilizar nuestros servicios.";
+                despedida.style.color = "blue";                        
+            }
+        }
+    </script>
+</body>
+</html>

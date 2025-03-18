@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Screen</title>
+</head>
+<body>
+    <h1>Información de tu pantalla</h1>
+    <p id="info"></p>
+
+    <script>
+        let infoPantalla = `
+            Navegador: ${navigator.userAgent} <br>
+            Lenguaje: ${navigator.language} <br>
+            Ancho disponible: ${screen.availWidth}px <br>
+            Alto disponible: ${screen.availHeight}px <br>
+            Profundidad de color: ${screen.colorDepth} bits <br>
+            Profundidad de píxeles: ${screen.pixelDepth} bits
+        `;
+        document.getElementById("info").innerHTML = infoPantalla;
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+Ejercicio 1
+let palabra = prompt("Ingresa una palabra:");
+console.log("Longitud:", palabra.length);
+console.log("Primera letra:", palabra.charAt(0));
+console.log("Última letra:", palabra.charAt(palabra.length - 1));
+console.log("¿Contiene 'a'?", palabra.includes("a"));
+console.log("Mayúsculas:", palabra.toUpperCase());
+console.log("Minúsculas:", palabra.toLowerCase());
+
+Ejercicio 2
+let num = Math.floor(Math.random() * 100) + 1;
+console.log("Número aleatorio:", num);
+console.log("Raíz cuadrada:", Math.sqrt(num));
+console.log("Redondeado:", Math.round(num));
+console.log("Cuadrado:", Math.pow(num, 2));
+
+Ejercicio 3
+let edad = parseInt(prompt("Ingresa tu edad:"));
+
+if (edad < 18) {
+    console.log("Eres menor de edad.");
+} else if (edad <= 65) {
+    console.log("Eres adulto.");
+} else {
+    console.log("Eres mayor.");
+}
+
+let mes = prompt("Ingresa un mes:").toLowerCase();
+switch (mes) {
+    case "diciembre":
+    case "enero":
+    case "febrero":
+        console.log("Es invierno.");
+        break;
+    case "marzo":
+    case "abril":
+    case "mayo":
+        console.log("Es primavera.");
+        break;
+    case "junio":
+    case "julio":
+    case "agosto":
+        console.log("Es verano.");
+        break;
+    case "septiembre":
+    case "octubre":
+    case "noviembre":
+        console.log("Es otoño.");
+        break;
+    default:
+        console.log("Mes no válido.");
+}
+
+Ejercicio 4
+let nombres = ["Ana", "Carlos", "Beatriz", "Daniel", "Elena"];
+
+for (let i = 0; i < nombres.length; i++) {
+    console.log(nombres[i]);
+}
+
+nombres.forEach(nombre => console.log(nombre.toUpperCase()));
+
+Ejercicio 5
+try {
+    let entrada = "cinco";
+    let numero = parseInt(entrada);
+    if (isNaN(numero)) throw "No ingresaste un número válido";
+    console.log("Número ingresado:", numero);
+} catch (error) {
+    console.error("Error:", error);
+}
+
+Ejercicio 6
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    
+</head>
+
+<body>
+
+    <h1 id="salida"></h1>
+
+    <script>
+        let password = "secreto";
+        let cont = 1;
+        
+        while (cont <= 3) {
+            let intento = prompt("Ingresa la contraseña (intento " + cont + ")" );
+            if (intento === password) {
+                document.getElementById("salida").textContent="Acceso permitido";
+                break;
+            } else cont++ ;
+            
+        }
+        if (cont>3) document.getElementById("salida").textContent="Intentos agotados";
+
+    </script>
+
+</body>
+
+</html>

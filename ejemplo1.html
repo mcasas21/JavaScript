@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero Automático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="salida"></h1>
+
+    <script>
+        const password = "secreto";
+        let intento,contador=1;
+        while (contador<=3) {
+            intento = prompt("Ingresa la contraseña. Intento :" + contador + " de 3");
+            if (intento == password) {
+                document.getElementById("salida").textContent="Acceso permitido";
+                break;
+            } else {
+                contador++;
+            }
+
+        }
+        if (contador>3) {
+            document.getElementById("salida").textContent="Acceso denegado";
+        }
+
+    </script>
+
+</body>
+
+</html>

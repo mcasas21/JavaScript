@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1> Hola Chicos </h1>
+    <div id="miElemento"></div>
+    <div id="elemModificado"></div>
+
+    <script>
+        
+        let mensaje = "Hola, mundo!";
+        document.getElementById("miElemento").textContent = mensaje;
+        mensaje = "Buenos días";
+
+        document.getElementById("elemModificado").textContent = mensaje;
+
+        //intentamos mostrar el mensaje modificado
+        document.getElementById("elemModificado").textContent = mensaje;
+        
+        //añadimos un elemento 
+        let p=document.createElement("p");
+        p.textContent="Párrafo añadido correctamente.";
+        document.getElementById("elemModificado").appendChild(p);
+        
+    </script>
+
+</body>
+</html>

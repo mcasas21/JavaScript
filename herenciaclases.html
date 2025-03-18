@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .resultados {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: azure;
+            margin: 10px auto;
+            width: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Herencia por Clases</h1>
+    <p>En este ejemplo, se muestra cómo se puede implementar la herencia de clases en JavaScript.</p>
+    <p>En este caso, se define una clase Animal con un constructor y un método hablar y otro para obtener la clase (getClase).</p>
+    <p>Se define una clase Perro que hereda de Animal. Perro tiene un constructor propio y un método propio: ladrar.</p>
+    <p>Se crea una instancia de Perro y se muestra cómo se pueden llamar a los métodos de la clase padre y de la clase hija.</p>
+
+    <div class="resultados"></div>
+
+    <script>
+
+        // Clase padre
+        class Animal {
+            constructor(nombre,clase) {
+                this.nombre = nombre;
+                this.clase = clase;
+                
+            }
+
+            getClase() {
+                return `${this.nombre} es de la clase ${this.clase}`;
+            }
+
+            hablar() {
+                return this.nombre +  " hace un sonido";
+            }
+        }
+
+        // Clase hija
+        class Perro extends Animal {
+            constructor(nombre,clase,raza) {
+                super(nombre,clase); // Llamamos al constructor del padre
+                this.raza = raza;
+            }
+
+            ladrar() {
+                return this.nombre + ", que es un " + this.raza + ", dice: ¡Guau!";
+            }
+        }
+
+        // Uso
+        const miPerro = new Perro("Toby","Perro","Labrador");
+        document.querySelector(".resultados").innerHTML = `
+            <p>Nombre: ${miPerro.hablar()}</p>
+            <p>Clase: ${miPerro.getClase()}</p>
+            <p>Ladrar: ${miPerro.ladrar()}</p>
+        `;
+
+    </script>
+
+</body>
+
+</html>

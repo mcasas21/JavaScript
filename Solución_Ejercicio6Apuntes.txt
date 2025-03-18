@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    
+</head>
+
+<body>
+
+    <h1 id="salida"></h1>
+
+    <script>
+        let password = "secreto";
+        let cont = 1;
+        
+        while (cont <= 3) {
+            let intento = prompt("Ingresa la contraseña (intento " + cont + ")" );
+            if (intento === password) {
+                document.getElementById("salida").textContent="Acceso permitido";
+                break;
+            } else cont++ ;
+            
+        }
+        if (cont>3) document.getElementById("salida").textContent="Intentos agotados";
+
+    </script>
+
+</body>
+
+</html>

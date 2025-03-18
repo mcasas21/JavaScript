@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Screen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="miDiv">
+        Contenido original
+    </div>
+    <h1>Información de tu pantalla</h1>
+
+    <script>
+        let miElemento = document.getElementById("miDiv");
+        let cabecera = document.querySelector("h1");
+        let control = true;
+
+
+        // Modificar estilos
+        miElemento.style.fontSize = "24px";
+        miElemento.style.color = "red";
+
+        // Cambiar contenido
+        miElemento.innerHTML = "<b>Nuevo contenido</b>";
+
+        // Modificar estilos
+        miElemento.style.backgroundColor = "lightblue";
+
+        // Agregar clase CSS
+        cabecera.classList.add("resaltado");
+
+        // Ocultar un elemento
+        cabecera.hidden = true;
+        // Simular un clic
+        miElemento.click();
+        let p = document.createElement("p");
+        document.getElementById("miDiv").addEventListener("click", function () {
+            
+            if (control) {
+                p.textContent = "Párrafo añadido correctamente.";
+                document.getElementById("miDiv").appendChild(p);
+            } else {
+                document.getElementById("miDiv").removeChild(p);
+            }
+            control = !control;
+
+        });
+
+    </script>
+</body>
+
+</html>

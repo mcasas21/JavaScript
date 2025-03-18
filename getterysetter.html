@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter y Setters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .resultados {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: azure;
+            margin: 10px auto;
+            width: 50%;
+        }
+        .error {
+            border: 1px solid #101010;
+            padding: 10px;
+            background-color: rgb(241, 61, 61);
+            margin: 10px auto;
+            width: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <h1>Getters y Setters</h1>
+    <p>En este ejemplo, se muestra cómo se pueden usar getters y setters en JavaScript.</p>
+    <p>Se define una clase Persona con un constructor y dos métodos: getNombre y getEdad.</p>
+    <p>Se define un setter para el nombre.</p>
+    <p>El getter de nombre devuelve el nombre en mayúsculas.</p>
+    <p>El getter de edad devuelve si la persona es mayor o menor de edad.</p>
+    <p>El setter de nombre valida que el nombre tenga al menos 2 caracteres.</p>
+    <p>Se crea una instancia de Persona y se muestra cómo se pueden llamar a los métodos.</p>
+    
+    <div class="resultados"></div>
+    <div class="error"></div>
+
+    <script>
+
+        class Persona {
+            constructor(nombre, edad) {
+                this._nombre = nombre; // Se usa _ para evitar colisión con el getter/setter
+                this._edad = edad;
+            }
+
+            get nombre() {
+                return this._nombre.toUpperCase(); // Devuelve siempre en mayúsculas
+            }
+
+            get edad() {
+
+                return this._edad >= 18 ? "Es mayor de edad" : "Es menor de edad";
+            }
+                   
+
+            set nombre(nuevoNombre) {
+
+                let controlerror = document.querySelector(".error");
+                if (nuevoNombre.length > 1) {
+                    this._nombre = nuevoNombre;
+                    controlerror.textContent = "";
+                } else {
+                    controlerror.textContent = "Has intentado cambiar el nombre por '" + nuevoNombre + 
+                    "'. El nombre debe tener al menos 2 caracteres.";
+                 
+                }
+            }
+        }
+        // Uso
+        let persona = new Persona("Juan", 30);
+        persona.nombre = "S";
+           
+        document.querySelector(".resultados").innerHTML = `
+            <p>Nombre: ${persona.nombre}</p>
+            <p>Edad: ${persona.edad}</p>
+        `;
+        
+
+    </script>
+
+</body>
+
+</html>

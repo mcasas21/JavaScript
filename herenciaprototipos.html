@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .resultados {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: azure;
+            margin: 10px auto;
+            width: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Herencia por Prototipos</h1>
+    <p>En este ejemplo, se muestra cómo se puede implementar la herencia de prototipos en JavaScript.</p>  
+    <p>En este caso, se define una clase Persona con un constructor y tres métodos: getEdad, getNombre y saludar.</p>
+    <p>Se define una clase Estudiante que hereda de Persona. Estudiante tiene un constructor propio y un método propio: mostrarCurso.</p>
+    <p>Se crea una instancia de Estudiante y se muestra cómo se pueden llamar a los métodos de la clase padre y de la clase hija.</p>
+    <div class="resultados"></div>
+    
+    <script>
+
+        function Persona(nombre, edad) {
+            this.nombre = nombre;
+            this.edad = edad;
+        }
+
+
+        Persona.prototype.getEdad = function () {
+            return this.edad;
+        }
+        Persona.prototype.getNombre = function () {
+            return this.nombre;
+        }
+        Persona.prototype.saludar = function () {
+            return `Hola, soy ${this.nombre} y tengo ${this.edad} años.`;
+        };
+
+        // Heredar de Persona
+        function Estudiante(nombre, edad, curso) {
+            Persona.call(this, nombre, edad); // Llamar al constructor de Persona
+            this.curso = curso;
+        }
+
+        // Heredar métodos de Persona
+        Estudiante.prototype = Object.create(Persona.prototype);
+        Estudiante.prototype.constructor = Estudiante;
+
+        // Método propio de Estudiante
+        Estudiante.prototype.mostrarCurso = function () {
+            console.log(`${this.nombre} está en el curso ${this.curso}`);
+        };
+
+        // Uso
+        const alumno = new Estudiante("Juan", 55, "JavaScript");
+        document.querySelector(".resultados").innerHTML = `
+            <p>Edad: ${alumno.getEdad()}</p>
+            <p>Nombre: ${alumno.getNombre()}</p>
+            <p>Saludo: ${alumno.saludar()}</p>
+            <p>Curso: ${alumno.mostrarCurso()}</p>
+        `;
+
+    </script>
+
+</body>
+
+</html>
