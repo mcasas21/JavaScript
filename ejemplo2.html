@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo de document</title>
     <style>
-        body { font-family: Arial, sans-serif; }
+        body { font-family: Arial, sans-serif; 
+        text-align: center;}
         .miClase { color: blue; font-weight: bold; }
     </style>
 </head>
@@ -19,15 +20,15 @@
 
     <form id="miFormulario">
         <input type="text" name="nombre" placeholder="Escribe tu nombre">
-        <button type="button" onclick="modificarContenido()">Enviar</button>
+        <button type="button" onclick="modificarContenido()">Mostrar</button>
     </form>
 
-    <ul id="lista">
+    <ol id="lista">
         <li>Elemento 1</li>
         <li>Elemento 2</li>
-    </ul>
+    </ol>
 
-    <!-- <script>
+    <script>
         // Modificar el título de la página
         document.title = "Título cambiado con JS";
 
@@ -38,35 +39,38 @@
         // Seleccionar y modificar elementos
         document.getElementById("titulo").innerHTML = "Nuevo Título desde JavaScript";
         
-        let parrafos = document.getElementsByClassName("miClase");
+         let parrafos = document.getElementsByClassName("miClase");
         parrafos[0].textContent = "Texto cambiado con getElementsByClassName";
 
-        let listaElementos = document.getElementsByTagName("li");
+        document.querySelector("ol").style.listStyleType = "none";
+
+         let listaElementos = document.getElementsByTagName("li");
+         listaElementos[1].style.color = "red";
         listaElementos[1].innerHTML = "Elemento cambiado con getElementsByTagName";
 
         let contenedor = document.querySelector("#contenedor p");
         contenedor.innerHTML = "Texto cambiado con querySelector";
 
-        let todosLosParrafos = document.querySelectorAll("p");
-        todosLosParrafos[1].style.color = "green";
+         let todosLosParrafos = document.querySelectorAll("p");
+         todosLosParrafos[1].style.color = "green";
 
-        // Crear y agregar un nuevo elemento
-        let nuevoParrafo = document.createElement("p");
-        nuevoParrafo.textContent = "Soy un párrafo nuevo.";
-        document.body.appendChild(nuevoParrafo);
+         // Crear y agregar un nuevo elemento
+         let nuevoParrafo = document.createElement("p");
+         nuevoParrafo.textContent = "Soy un párrafo nuevo.";
+         document.body.appendChild(nuevoParrafo);
 
-        // Eliminar un nodo
-        let lista = document.getElementById("lista");
-        lista.removeChild(lista.children[0]); // Elimina el primer elemento de la lista
+         //Eliminar un nodo
+         let lista = document.getElementById("lista");
+         lista.removeChild(lista.children[0]); // Elimina el primer elemento de la lista
 
         // Función para modificar contenido al hacer clic en el botón
-        function modificarContenido() {
-            let inputNombre = document.forms["miFormulario"]["nombre"].value;
-            let mensaje = document.createElement("p");
-            mensaje.textContent = "Hola, " + inputNombre + "! Bienvenido.";
+         function modificarContenido() {
+             let inputNombre = document.forms["miFormulario"]["nombre"].value;
+             let mensaje = document.createElement("p");
+             mensaje.textContent = "Hola, " + inputNombre + "!Bienvenido.";
             document.body.appendChild(mensaje);
-        }
-    </script> -->
+         }
+    </script>
 
 </body>
 </html>

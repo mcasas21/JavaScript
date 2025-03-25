@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Baloncesto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <h1>Clasificación de Baloncesto</h1>
+
+    <!-- Botón para generar partidos -->
+    <button onclick="generarPartidos()">Generar Partidos</button>
+
+    <!-- Tabla de clasificación -->
+    <h2>Clasificación</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Equipo</th>
+                <th>Puntos</th>
+                <th>Puntos a Favor</th>
+                <th>Puntos en Contra</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-clasificacion"></tbody>
+    </table>
+
+    <!-- Tabla para introducir resultados -->
+    <h2>Introducir Resultados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Equipo Local</th>
+                <th>Puntos Local</th>
+                <th>Puntos Visitante</th>
+                <th>Equipo Visitante</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-resultados"></tbody>
+    </table>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

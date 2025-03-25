@@ -8,19 +8,19 @@
 </head>
 
 <body>
-    <div id="contenedor">
-        <p id="mensaje"></p>
-        <p>Texto inicial</p>
-    </div>
+    
 
     <script>
         
 
-            allert('Hola Mundo');
-            
+        if (confirm("¿Quieres continuar?")) { 
+            let nombre = prompt("Escribe tu nombre:"); 
+            alert("Hola, " + nombre); 
+            open("ejemplo1.html","Nueva Ventana"); 
+        } 
 
-    
-        alert('Hola Mundo 2');
+        else alert("Que tengas un buen día"); 
+        
     </script>
 </body>
 
