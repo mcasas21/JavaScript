@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .resultadosascendente, .resultadosdescendente {
+            padding: 5px;
+            background-color: azure;
+            margin: 0px auto;
+            width: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Función flecha</h1>
+    <p>En este ejemplo ordenamos un array de números con una función flecha</p>
+    
+
+    <div class="resultadosascendente"></div>
+    <div class="resultadosdescendente"></div>
+
+    <script>
+
+        let a=new Array(5,3,8,1,9,2,7,4,6);
+        let b=a.slice(); // copia el array
+        let ordenadoascendente=a.sort((a,b)=>a-b); // ordena de menor a mayor (ascendente)
+        document.querySelector(".resultadosascendente").innerHTML = `
+            <p>Array original: ${b}</p>
+            <p>Array ordenado ascendentemente: ${ordenadoascendente}</p>
+        `;
+        let ordenadodescendente=a.sort((a,b)=>b-a); // ordena de mayor a menor (descendente)
+        document.querySelector(".resultadosdescendente").innerHTML = `
+            <p>Array ordenado descendentemente: ${ordenadodescendente}</p>
+        `;
+
+    </script>
+
+</body>
+
+</html>

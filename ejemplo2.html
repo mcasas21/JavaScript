@@ -29,6 +29,7 @@
     </ol>
 
     <script>
+        let control = true;
         // Modificar el título de la página
         document.title = "Título cambiado con JS";
 
@@ -65,10 +66,19 @@
 
         // Función para modificar contenido al hacer clic en el botón
          function modificarContenido() {
+            if (control) {
+                document.getElementById("parrafo").textContent = "Texto cambiado con función JavaScript.";
              let inputNombre = document.forms["miFormulario"]["nombre"].value;
              let mensaje = document.createElement("p");
-             mensaje.textContent = "Hola, " + inputNombre + "!Bienvenido.";
+             mensaje.className = "miParrafo";
+             mensaje.textContent = "Hola, " + inputNombre + " !Bienvenido.";
             document.body.appendChild(mensaje);
+            control=false;
+            } else {
+                let inputNombre = document.forms["miFormulario"]["nombre"].value;
+                let mensaje = document.getElementsByClassName("miParrafo");
+                mensaje[0].textContent = "Hola, " + inputNombre + " !Bienvenido.";
+            }
          }
     </script>
 

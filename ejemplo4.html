@@ -37,9 +37,9 @@
         miElemento.style.backgroundColor = "lightblue";
 
         // Simular un clic
-        miElemento.click();
+        miElemento.click(); //simula un clic en el elemento, pero aquí no hace nada porque seguidamente utilizamos el addEventListener...
         let p = document.createElement("p");
-        document.getElementById("miDiv").addEventListener("click", function () {
+        miElemento.addEventListener("click", function () {
             
             if (control) {
                 p.textContent = "Párrafo añadido correctamente.";
